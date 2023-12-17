@@ -24,7 +24,6 @@ public class ConsumerConfig {
 
   @Value(value = "${spring.kafka.consumer.group-id}")
   private String groupId;
-  private static final String DLT_TOPIC_SUFFIX = ".dlt";
 
 @Bean
 public ConsumerFactory<String, PersonDto> consumerFactory() {
