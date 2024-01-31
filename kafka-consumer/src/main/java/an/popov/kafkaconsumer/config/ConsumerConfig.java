@@ -9,6 +9,7 @@ import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
+import org.springframework.kafka.listener.DefaultErrorHandler;
 import org.springframework.kafka.support.serializer.ErrorHandlingDeserializer;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
@@ -47,8 +48,14 @@ public ConsumerFactory<String, PersonDto> consumerFactory() {
   @Bean
   public ConcurrentKafkaListenerContainerFactory<String, PersonDto> kafkaListenerContainerFactory() {
     ConcurrentKafkaListenerContainerFactory<String, PersonDto> concurrentKafkaListenerContainerFactory = new ConcurrentKafkaListenerContainerFactory<>();
+//    concurrentKafkaListenerContainerFactory.setCommonErrorHandler(defaultErrorHandler());
     concurrentKafkaListenerContainerFactory.setConsumerFactory(consumerFactory());
     concurrentKafkaListenerContainerFactory.setMissingTopicsFatal(false);
     return concurrentKafkaListenerContainerFactory;
+  }
+// погугллить
+  @Bean
+  public DefaultErrorHandler defaultErrorHandler(){
+    return new DefaultErrorHandler(new ConsumerRecordRecovererImpl());
   }
 }
