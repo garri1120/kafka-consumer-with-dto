@@ -1,12 +1,13 @@
-package an.popov.kafkaconsumer.component;
+package an.popov.kafkaconsumer.version1.test;
 
 
 import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.verify;
 import an.popov.PersonDtoForKafka.dto.PersonDto;
+import an.popov.kafkaconsumer.component.ConsumerKafkaListener;
 import an.popov.kafkaconsumer.config.ConsumerConfig;
 import an.popov.kafkaconsumer.container.KafkaContainerTest;
-import an.popov.kafkaconsumer.configuration.Config;
+import an.popov.kafkaconsumer.version1.configuration.Config;
 import java.util.concurrent.ExecutionException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.Producer;
@@ -21,12 +22,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 @Slf4j
 @SpringBootTest(classes = {ConsumerConfig.class, ConsumerKafkaListener.class})
 @ContextConfiguration(classes = {KafkaContainerTest.class, Config.class})
 @Testcontainers(disabledWithoutDocker = true)
+@TestPropertySource(locations = "classpath:application.properties")
 class ConsumerKafkaListenerTest {
 
   @Value("${name.topic}")

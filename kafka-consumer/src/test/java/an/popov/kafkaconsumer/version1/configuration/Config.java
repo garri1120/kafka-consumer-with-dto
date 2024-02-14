@@ -1,4 +1,4 @@
-package an.popov.kafkaconsumer.configuration;
+package an.popov.kafkaconsumer.version1.configuration;
 
 import an.popov.PersonDtoForKafka.dto.PersonDto;
 import java.util.HashMap;
@@ -26,7 +26,6 @@ public class Config {
   private final String bootstrapAddress = System.getProperty(
       "spring.kafka.consumer.bootstrap-servers");
 
-  ;
 
   @Bean
   public KafkaAdmin kafkaAdmin() {
