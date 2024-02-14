@@ -48,7 +48,6 @@ public ConsumerFactory<String, PersonDto> consumerFactory() {
   @Bean
   public ConcurrentKafkaListenerContainerFactory<String, PersonDto> kafkaListenerContainerFactory() {
     ConcurrentKafkaListenerContainerFactory<String, PersonDto> concurrentKafkaListenerContainerFactory = new ConcurrentKafkaListenerContainerFactory<>();
-//    concurrentKafkaListenerContainerFactory.setCommonErrorHandler(defaultErrorHandler());
     concurrentKafkaListenerContainerFactory.setConsumerFactory(consumerFactory());
     concurrentKafkaListenerContainerFactory.setMissingTopicsFatal(false);
     return concurrentKafkaListenerContainerFactory;

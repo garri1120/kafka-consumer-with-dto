@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class ConsumerComponent {
+public class ConsumerKafkaListener {
 
-  @KafkaListener(topics = "Andrew_Gson", containerFactory = "kafkaListenerContainerFactory")
-  public void savePersonFromKafka(PersonDto personDto) {
+  @KafkaListener(topics = "${name.topic}", containerFactory = "kafkaListenerContainerFactory")
+  public void getPersonDtoFromKafka(PersonDto personDto) {
     log.info("Successfully received message from kafka {}", personDto);
   }
 }
