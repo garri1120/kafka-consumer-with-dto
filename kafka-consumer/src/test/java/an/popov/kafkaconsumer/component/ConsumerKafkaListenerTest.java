@@ -25,7 +25,6 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 @Slf4j
 @SpringBootTest(classes = {ConsumerConfig.class, ConsumerKafkaListener.class})
-//@SpringBootTest(classes = KafkaConsumerApplication.class)
 @ContextConfiguration(classes = {KafkaContainerTest.class, Config.class})
 @Testcontainers(disabledWithoutDocker = true)
 class ConsumerKafkaListenerTest {
@@ -63,6 +62,7 @@ class ConsumerKafkaListenerTest {
 
 
     verify(consumerKafkaListener, timeout(5000)).getPersonDtoFromKafka(captor.capture());
+
     Assertions.assertEquals(personDto.getFirstname(), captor.getValue().getFirstname());
   }
 
