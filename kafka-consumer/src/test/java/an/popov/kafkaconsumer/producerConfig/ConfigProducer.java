@@ -1,4 +1,4 @@
-package an.popov.kafkaconsumer.version2.configuration;
+package an.popov.kafkaconsumer.producerConfig;
 
 import an.popov.PersonDtoForKafka.dto.PersonDto;
 import java.util.HashMap;
@@ -18,7 +18,7 @@ import org.springframework.kafka.support.serializer.JsonSerializer;
 
 
 @Configuration
-public class ConfigKafkaTemplate {
+public class ConfigProducer {
 
   @Value("${name.topic}")
   private String nameTopic;

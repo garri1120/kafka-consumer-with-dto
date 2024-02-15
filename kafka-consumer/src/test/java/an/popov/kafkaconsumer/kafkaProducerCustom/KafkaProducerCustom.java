@@ -1,4 +1,4 @@
-package an.popov.kafkaconsumer.version2.configuration;
+package an.popov.kafkaconsumer.kafkaProducerCustom;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
