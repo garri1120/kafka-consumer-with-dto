@@ -16,7 +16,7 @@ public class ConsumerKafkaListenerDeserializer {
   public void getPersonDtoFromKafkaCustomDeserializer(ConsumerRecord<String, CustomDeserializerDto> consumerRecord) {
 
     CustomDeserializerDto customDeserializerDto = consumerRecord.value();
-    log.info("Successfully received message from kafka. Topic = [{}], message = {}", consumerRecord.topic(), customDeserializerDto);
+    log.info("+++++++++++++++++++++++=Successfully received message from kafka. Topic = [{}], message = {}", consumerRecord.topic(), customDeserializerDto);
 
   }
 }

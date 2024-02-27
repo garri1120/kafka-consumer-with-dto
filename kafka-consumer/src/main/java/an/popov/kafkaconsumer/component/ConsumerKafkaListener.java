@@ -13,7 +13,7 @@ public class ConsumerKafkaListener {
 
   @KafkaListener(topics = "${name.topic}", containerFactory = "kafkaListenerContainerFactory")
   public void getPersonDtoFromKafka(PersonDto personDto) {
-    log.info("Successfully received message from kafka {}", personDto);
+    log.info("++++++++++++++++++Successfully received message from kafka {}", personDto);
 
   }
 }

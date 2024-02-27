@@ -49,7 +49,7 @@ public class ConfigProducer {
     configProps.put(
         ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,
         JsonSerializer.class);
-//    configProps.put(ProducerConfig.TRANSACTIONAL_ID_CONFIG, "my-transactional-id"); // Установка идентификатора транзакции
+    configProps.put(ProducerConfig.TRANSACTIONAL_ID_CONFIG, "my-transactional-id"); // Установка идентификатора транзакции
 //    configProps.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, true); // Включение идемпотентности
     return new DefaultKafkaProducerFactory<>(configProps);
   }
